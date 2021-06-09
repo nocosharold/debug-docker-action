@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: Running Units Tests
-    # runs-on: ubuntu-latest
+    use_prebuilt_image: master
     steps:
     - name: Checkout project
       uses: actions/checkout@v2
@@ -23,3 +23,4 @@ jobs:
       run: docker run survey-form sh -c "npm test"
     - name: Compose down the docker
       run: docker-compose -f "docker-compose.yml" down
+      
